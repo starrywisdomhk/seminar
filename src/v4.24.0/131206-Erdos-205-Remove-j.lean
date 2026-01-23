@@ -8,7 +8,7 @@ The simplified construction uses:
 - Moduli: 2^E, 3, and p_k^E for k = 0, ..., E-1
 - Remainders: 0, 0, and 2^k for k = 0, ..., E-1
 
-Where p_k is the (k+2)-th prime (so p_0 = 5, p_1 = 7, etc.)
+Where p_k is the (k+3)-th prime (so p_0 = 5, p_1 = 7, etc.)
 
 The proof is verified by Lean. The following version numbers were used:
 Lean Toolchain version: leanprover/lean4:v4.24.0
@@ -44,12 +44,12 @@ noncomputable def pntRate (n : ℕ) : ℝ :=
 
 /-
 Select E distinct odd primes, none equal to 3; for definiteness, take the first E odd primes >= 5
-and label them as p_k. The (k+2)-th prime gives us p_0 = 5, p_1 = 7, p_2 = 11, etc.
+and label them as p_k. The (k+3)-th prime gives us p_0 = 5, p_1 = 7, p_2 = 11, etc.
 -/
 noncomputable def p_k (E k : ℕ) : ℕ := Nat.nth Nat.Prime (k + 2)
 
 /-
-Define Q_k as p_k^E (the E-th power of the k-th prime).
+Define Q_k as p_k^E (the E-th power of p_k).
 -/
 noncomputable def Q_k (E k : ℕ) : ℕ := (p_k E k)^E
 
